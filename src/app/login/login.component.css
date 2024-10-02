@@ -103,24 +103,23 @@ input::placeholder {
 .login-options {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .login-options h4{
-  font-family: Poppins;
-  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  letter-spacing: 0.37400001287460327px;
-  text-align: left;
+  letter-spacing: 0.374px;
   color: #404040;
   margin: 0;
-  padding-right: 20px;
 }
 
 .login-options a {
-  margin-right: 10px;
-  padding: 0 20px;
+  text-decoration: none;
+  color: #404040;
 }
 
 .btn-login {

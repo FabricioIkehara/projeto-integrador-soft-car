@@ -1,27 +1,25 @@
-.menu-bar-container{
+.menu-bar-container {
   width: 1366px;
   height: 69px;
-  gap: 0px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
-  margin-top: 0;
-  background-color: #2A2F67;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid #D6D6D6;
+  background-color: #2A2F67;
 
+  opacity: 1;
 }
 
-.menu-bar-menu{
-  width: Fixed (180px)px;
-  height: Hug (40px)px;
-  top: 14px;
-  left: 92px;
-  padding: 8px 23px 8px 16px;
+.menu-bar-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 25px;
+  padding: 8px;
   gap: 8px;
-  opacity: 0px;
-
-}
-
-.menu-bar-menu{
+  opacity: 1;
   border: 2px solid #FFFFFF;
   font-family: Montserrat;
   font-size: 16px;
@@ -30,35 +28,46 @@
   text-align: left;
   background-color: transparent;
   color: #FFFFFF;
-  border-radius: 8px 8px 8px 8px;
-  border: 2px 0px 0px 0px;
-  width: 180px;
-}
+  border-radius: 8px;
+  margin-left: 50px;
 
-.menu-bar-menu img{
-  height: 24px;
-  width: 24px;
-  color: #FFFFFF;
 }
 
 .menu-bar-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  top: 10px;
-  left: 640px;
-  gap: 0px;
-  opacity: 0px;
-  text-align: center;
-  display: block;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  margin-bottom: 10px;
 }
 
-.menu-bar-img img{
+.menu-bar-img img {
   width: 85.7px;
   height: 48px;
-  margin-top: 10px;
+  margin-top: 10px; /* Este valor pode ser ajustado se necessário */
 }
 
+.menu-bar-config{
+  margin-right: 50px;
+  width: 149px;
+  height: 29px;
+  gap: 0px;
+  opacity: 0px;
+  display: flex;
+  justify-content: space-between;
 
 
+}
+
+.menu-bar-config span{
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: right;
+  color: #FFFFFF;
+
+}
