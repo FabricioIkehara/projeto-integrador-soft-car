@@ -5,7 +5,6 @@
   background-color: #2A2F67; /* Cor de fundo azul escuro */
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para dar efeito de profundidade */
-  position: fixed; /* Mantém o menu fixo na lateral */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
