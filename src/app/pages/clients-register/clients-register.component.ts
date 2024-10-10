@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MenuBarComponent } from '../components/menu-bar/menu-bar.component';
-import { MenuSideComponent } from '../components/menu-side/menu-side.component';
+import { MenuBarComponent } from '../../components/menu-bar/menu-bar.component';
+import { MenuSideComponent } from '../../components/menu-side/menu-side.component';
+
 
 @Component({
   selector: 'app-clients-register',
