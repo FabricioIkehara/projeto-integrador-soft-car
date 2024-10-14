@@ -10,35 +10,33 @@
         <form>
           <div class="form-group">
             <label for="name">Cliente</label>
-            <input type="text" id="name" placeholder="Nome">
+            <input type="text" id="name" placeholder="Nome" />
           </div>
 
           <div class="form-group">
             <label for="phone">TELEFONE (COM DDD)</label>
-            <input type="text" id="phone" placeholder="(xx) XXXXX-XXXX">
+            <input type="text" id="phone" placeholder="(xx) XXXXX-XXXX" />
           </div>
 
           <div class="form-group car-info">
             <label for="car">Carro*</label>
             <label for="color">Cor*</label>
             <label for="plate">Placa*</label>
-            <input type="text" id="car" placeholder="Carro">
-            <input type="text" id="color" placeholder="Cor">
-            <input type="text" id="plate" placeholder="Placa">
+            <input type="text" id="car" placeholder="Carro" />
+            <input type="text" id="color" placeholder="Cor" />
+            <input type="text" id="plate" placeholder="Placa" />
           </div>
-
 
           <div class="form-group">
             <label for="observation">OBSERVAÇÃO</label>
             <textarea id="observation" placeholder="Observação"></textarea>
           </div>
-
         </form>
 
         <div class="add-service-container">
           <div class="add-service-title">
             <h2>Adicionar serviços</h2>
-            <button class="add-service">
+            <button class="add-service" (click)="openDialog()">
               <i class="fas fa-plus"></i> Adicionar serviços
             </button>
           </div>
@@ -60,13 +58,9 @@
                 </tr>
               </tbody>
             </table>
-
-
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

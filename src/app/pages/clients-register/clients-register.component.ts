@@ -12,4 +12,5 @@ import { MenuSideComponent } from '../../components/menu-side/menu-side.componen
 })
 export class ClientsRegisterComponent {
 
+
 }

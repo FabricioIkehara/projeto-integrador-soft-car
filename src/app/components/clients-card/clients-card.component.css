@@ -58,3 +58,10 @@
   text-align: left;
   text-decoration: underline;
 }
+
+
+.client-card-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover; /* Ajusta o tamanho da imagem */
+}

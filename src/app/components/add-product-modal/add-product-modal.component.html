@@ -1,0 +1,29 @@
+<div class="modal-container">
+  <div class="modal-title">
+    <h2><i class="fas fa-arrow-left"></i> Adicionar Serviço</h2>
+  </div>
+
+  <div class="modal-data">
+    <div>
+      <h3>Descrição do Serviço</h3>
+      <p>teste bla bla bla{{ data?.observacao }}</p>
+    </div>
+
+    <div class="modal-under-data">
+      <span>
+        <h2>Quantidade</h2>
+        <p>2{{ data?.carroModelo }}</p>
+      </span>
+      <span>
+        <h2>Valor Unitário</h2>
+        <p> R$250{{ data?.clienteNome }}</p>
+
+      </span>
+    </div>
+  </div>
+
+  <div class="modal-actions">
+    <button class="btn-cancel" (click)="onCancel()">Cancelar</button>
+    <button class="btn-confirm" mat-button (click)="onSave()">Confirmar</button>
+  </div>
+</div>

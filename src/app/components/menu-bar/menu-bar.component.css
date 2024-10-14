@@ -83,6 +83,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  width: 200px;
 }
 
 .dropdown-content {
@@ -123,4 +124,12 @@
 
 .dropdown-content a i {
   margin-right: 8px;
+}
+
+.icon-profile img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  margin-left: 8px;
+  background-color: #FFFFFF;
 }
