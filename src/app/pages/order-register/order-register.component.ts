@@ -1,18 +1,33 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddProductModalComponent } from '../../components/add-product-modal/add-product-modal.component';
 import { MenuBarComponent } from '../../components/menu-bar/menu-bar.component';
 import { MenuSideComponent } from '../../components/menu-side/menu-side.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-order-register',
   standalone: true,
-  imports: [ MenuBarComponent, MenuSideComponent],
+  imports: [MenuBarComponent, MenuSideComponent, FormsModule, CommonModule, HttpClientModule],
   templateUrl: './order-register.component.html',
-  styleUrls: ['./order-register.component.css']
+  styleUrls: ['./order-register.component.css'],
 })
 export class OrderRegisterComponent {
-  constructor(private dialog: MatDialog) {}
+  formData = {
+    client: '',
+    telefone: '',
+    carro: '',
+    cor: '',
+    placa: '',
+    observacoes: '',
+  };
+
+  responseMessage = '';
+
+  constructor(private dialog: MatDialog, private http: HttpClient) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddProductModalComponent, {
@@ -27,5 +42,18 @@ export class OrderRegisterComponent {
         console.log('Adição de serviço cancelada.');
       }
     });
+  }
+
+  onSubmit(): void {
+    this.http.post('http://127.0.0.1:8000/api/submit/', this.formData).subscribe(
+      (response: any) => {
+        this.responseMessage = `Pedido enviado com sucesso! ID: ${response.id}`;
+        console.log(response);
+      },
+      (error) => {
+        this.responseMessage = 'Erro ao enviar o pedido.';
+        console.error(error);
+      }
+    );
   }
 }

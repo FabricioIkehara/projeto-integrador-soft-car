@@ -7,32 +7,71 @@
       <div class="form-container">
         <h2><i class="fas fa-arrow-left"></i> Adicionar pedido</h2>
 
-        <form>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
           <div class="form-group">
             <label for="name">Cliente</label>
-            <input type="text" id="name" placeholder="Nome" />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="formData.client"
+              placeholder="Nome"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="phone">TELEFONE (COM DDD)</label>
-            <input type="text" id="phone" placeholder="(xx) XXXXX-XXXX" />
+            <input
+              type="text"
+              id="phone"
+              name="telefone"
+              [(ngModel)]="formData.telefone"
+              placeholder="(xx) XXXXX-XXXX"
+              required
+            />
           </div>
 
           <div class="form-group car-info">
             <label for="car">Carro*</label>
             <label for="color">Cor*</label>
             <label for="plate">Placa*</label>
-            <input type="text" id="car" placeholder="Carro" />
-            <input type="text" id="color" placeholder="Cor" />
-            <input type="text" id="plate" placeholder="Placa" />
+            <input
+              type="text"
+              id="car"
+              name="carro"
+              [(ngModel)]="formData.carro"
+              placeholder="Carro"
+              required
+            />
+            <input
+              type="text"
+              id="color"
+              name="cor"
+              [(ngModel)]="formData.cor"
+              placeholder="Cor"
+              required
+            />
+            <input
+              type="text"
+              id="plate"
+              name="placa"
+              [(ngModel)]="formData.placa"
+              placeholder="Placa"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="observation">OBSERVAÇÃO</label>
-            <textarea id="observation" placeholder="Observação"></textarea>
+            <textarea
+              id="observation"
+              name="observacoes"
+              [(ngModel)]="formData.observacoes"
+              placeholder="Observação"
+            ></textarea>
           </div>
         </form>
-
         <div class="add-service-container">
           <div class="add-service-title">
             <h2>Adicionar serviços</h2>
