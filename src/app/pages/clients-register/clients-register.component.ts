@@ -1,71 +1,36 @@
 import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MenuBarComponent } from '../../components/menu-bar/menu-bar.component';
 import { MenuSideComponent } from '../../components/menu-side/menu-side.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-clients-register',
-  standalone: true,
-  imports: [MenuBarComponent, MenuSideComponent, FormsModule, CommonModule, HttpClientModule],
   templateUrl: './clients-register.component.html',
   styleUrls: ['./clients-register.component.css'],
+  standalone: true,
+  imports: [MenuBarComponent, MenuSideComponent, HttpClientModule, FormsModule]
 })
 export class ClientsRegisterComponent {
+  private apiUrl = 'http://localhost:8000/submit/';
 
-  formData: {
-    client: string;
-    telefone: string;
-    carro: string;
-    cor: string;
-    placa: string;
-    observacoes: string;
-  } = {
-    client: '',
-    telefone: '',
-    carro: '',
-    cor: '',
-    placa: '',
-    observacoes: '',
-  };
+  constructor(private http: HttpClient) { }
 
-  responseMessage = '';
-  isLoading = false;
-
-  constructor(private http: HttpClient) {}
-
-  onSubmit() {
-
-    const status = 'pendente';
-
-    const postData = {
-      ...this.formData,
-      status: status
-    };
-
-    this.http.post('/api/submit_form/', postData)
-      .subscribe(
-        (response: any) => {
-          this.responseMessage = 'Cliente adicionado com sucesso!';
-          console.log(response);
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      this.http.post(this.apiUrl, form.value).subscribe(
+        response => {
+          console.log('Cliente adicionado com sucesso!', response);
+          form.reset();
         },
-        (error) => {
-          console.error('Erro ao adicionar cliente:', error);
-          this.responseMessage = 'Erro ao adicionar cliente.';
+        error => {
+          console.error('Erro ao adicionar cliente', error);
         }
       );
+    }
   }
 
-
-  resetForm() {
-    this.formData = {
-      client: '',
-      telefone: '',
-      carro: '',
-      cor: '',
-      placa: '',
-      observacoes: '',
-    };
+  resetForm(form: NgForm) {
+    form.reset();
   }
 }

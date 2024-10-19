@@ -6,7 +6,7 @@
     <div class="form-container">
       <h2>Adicionar cliente</h2>
 
-      <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+      <form (ngSubmit)="onSubmit(clientForm)" #clientForm="ngForm">
         <div class="form-group">
           <label for="client">NOME*</label>
           <input type="text" id="client" name="client" ngModel placeholder="Nome" required />
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-buttons">
-          <button type="button" class="cancel-btn" (click)="resetForm()">CANCELAR</button>
+          <button type="button" class="cancel-btn" (click)="resetForm(clientForm)">CANCELAR</button>
           <button type="submit" class="add-btn" [disabled]="!clientForm.form.valid">ADICIONAR</button>
         </div>
       </form>
