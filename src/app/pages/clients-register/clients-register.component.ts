@@ -12,10 +12,19 @@ import { MenuSideComponent } from '../../components/menu-side/menu-side.componen
   imports: [MenuBarComponent, MenuSideComponent, HttpClientModule, FormsModule]
 })
 export class ClientsRegisterComponent {
-  private apiUrl = 'http://localhost:8000/submit/';
+  private apiUrl = 'http://127.0.0.1:8000/submit-form/';
 
   constructor(private http: HttpClient) { }
+   formData = {
+    client: '',
+    telefone: '',
+    carro: '',
+    cor: '',
+    placa: '',
+    observacoes: '',
+  };
 
+  responseMessage = '';
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.http.post(this.apiUrl, form.value).subscribe(

@@ -15,14 +15,10 @@ body, html {
   height: 100%;
 }
 
-
-
 .content-container {
   display: flex;
   flex: 1;
 }
-
-
 
 .form-container {
   position: relative;
@@ -67,11 +63,18 @@ textarea {
 .car-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 10px;
 }
 
+.car-info label,
 .car-info input {
-  padding: 10px;
+  width: 100%;
+}
+
+.car-info .form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-buttons {

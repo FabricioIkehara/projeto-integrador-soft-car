@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+interface Client {
+  id: number;
+  client: string;
+  telefone: string;
+}
 
 @Component({
   selector: 'app-clients-card',
   standalone: true,
-  imports: [],
   templateUrl: './clients-card.component.html',
-  styleUrl: './clients-card.component.css'
+  styleUrls: ['./clients-card.component.css'],
+  imports: [CommonModule],
 })
 export class ClientsCardComponent {
-
+  @Input() client!: Client; // Recebendo o cliente completo como input
 }

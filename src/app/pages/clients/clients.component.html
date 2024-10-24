@@ -6,15 +6,12 @@
       <div class="clients-title">
         <p>Clientes Cadastrados</p>
       </div>
-      <div>
-        <app-clients-card></app-clients-card>
-        <app-clients-card></app-clients-card>
-        <app-clients-card></app-clients-card>
-        <app-clients-card></app-clients-card>
-        <app-clients-card></app-clients-card>
-        <app-clients-card></app-clients-card>
+      <div class="clients-cards">
+        <app-clients-card
+          *ngFor="let client of clients"
+          [client]="client"
+        ></app-clients-card>
       </div>
     </div>
   </div>
 </div>
-
