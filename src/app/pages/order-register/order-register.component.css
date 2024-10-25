@@ -83,8 +83,9 @@ textarea {
 }
 
 .add-btn {
-  background-color: #28a745;
+  background-color: #2A2F67;
   color: white;
+  font: Montserrat ;
 }
 
 .add-service-container {

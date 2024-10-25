@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { AddProductModalComponent } from '../../components/add-product-modal/add-product-modal.component';
 import { MenuBarComponent } from '../../components/menu-bar/menu-bar.component';
 import { MenuSideComponent } from '../../components/menu-side/menu-side.component';
@@ -10,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-order-register',
   standalone: true,
-  imports: [MenuBarComponent, MenuSideComponent, FormsModule, CommonModule, HttpClientModule],
+  imports: [MenuBarComponent, MenuSideComponent, FormsModule, CommonModule],
   templateUrl: './order-register.component.html',
   styleUrls: ['./order-register.component.css'],
 })
@@ -26,16 +25,48 @@ export class OrderRegisterComponent {
 
   responseMessage = '';
 
-  constructor(private dialog: MatDialog, private http: HttpClient) {}
+  i: number | undefined;
+
+  constructor(private dialog: MatDialog) {}
+
+
+  public servicos: Array<{ quantidade: number, descricao: string, total: number }> = [];
+
+
+  public adicionarServico(): void {
+    this.servicos.push({ quantidade: 0, descricao: '', total: 0 });
+  }
+
+  public removerServico(index: number): void {
+  if (index !== undefined && index >= 0) {
+    this.servicos.splice(index, 1);
+  }
+}
+
+
+  public onSubmit(): void {
+
+    console.log(this.formData);
+    console.log(this.servicos);
+    this.openDialog();
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddProductModalComponent, {
       panelClass: 'custom-dialog',
-      data: {},
+      data: {
+        client: this.formData.client,
+        telefone: this.formData.telefone,
+        carro: this.formData.carro,
+        cor: this.formData.cor,
+        placa: this.formData.placa,
+        observacao: this.formData.observacoes
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        this.responseMessage = 'Serviço adicionado com sucesso!';
         console.log('Serviço adicionado:', result);
       } else {
         console.log('Adição de serviço cancelada.');
@@ -43,25 +74,4 @@ export class OrderRegisterComponent {
     });
   }
 
-  onSubmit(): void {
-    const url = 'http://127.0.0.1:8000/submit_form';
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-
-    console.log('Enviando formulário:', this.formData);
-
-    this.http.post(url, JSON.stringify(this.formData), { headers }).subscribe(
-      (response: any) => {
-        this.responseMessage = `Pedido enviado com sucesso! ID: ${response.id}`;
-        console.log('Resposta do servidor:', response);
-      },
-      (error) => {
-        this.responseMessage = 'Erro ao enviar o pedido.';
-        console.error('Erro ao enviar:', error);
-        console.error('Status do erro:', error.status);
-        console.error('Corpo do erro:', error.error);
-      }
-    );
-  }
 }

@@ -5,6 +5,7 @@ interface Client {
   id: number;
   client: string;
   telefone: string;
+
 }
 
 @Component({
@@ -15,5 +16,5 @@ interface Client {
   imports: [CommonModule],
 })
 export class ClientsCardComponent {
-  @Input() client!: Client; // Recebendo o cliente completo como input
+  @Input() client!: Client;
 }

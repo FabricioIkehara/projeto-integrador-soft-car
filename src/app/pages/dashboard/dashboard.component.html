@@ -6,13 +6,11 @@
       <div class="dashboard-title">
         <p>Pedidos em andamento</p>
       </div>
-      <div>
-        <app-small-card></app-small-card>
-        <app-small-card></app-small-card>
-        <app-small-card></app-small-card>
-        <app-small-card></app-small-card>
-        <app-small-card></app-small-card>
-        <app-small-card></app-small-card>
+      <div class="card-container">
+        <app-small-card
+          *ngFor="let order of orders"
+          [order]="order">
+        </app-small-card>
       </div>
     </div>
   </div>

@@ -1,27 +1,26 @@
-<div *ngFor="let order of orders">
-  <div class="small-card" [attr.id]="'card-' + order.id">
-    <div class="small-card-icon">
-      <img src="/assets/gear.png" alt="Ícone de Configurações" />
+<!-- small-card.component.html -->
+<div class="small-card" [attr.id]="'card-' + order.id">
+  <div class="small-card-icon">
+    <img src="/assets/gear.png" alt="Ícone de Configurações" />
+  </div>
+  <div class="small-card-title">
+    <p>Título do Card #{{ order.id }}</p>
+  </div>
+  <div class="small-card-stats">
+    <div class="stat-item">
+      <p class="stat-title">Cliente:</p>
+      <p class="stat-value">{{ order.client }}</p>
     </div>
-    <div class="small-card-title">
-      <p>Título do Card {{ order.id }}</p>
+    <div class="stat-item">
+      <p class="stat-title">Carro:</p>
+      <p class="stat-value">{{ order.carro }}</p>
     </div>
-    <div class="small-card-stats">
-      <div class="stat-item">
-        <p class="stat-title">Cliente:</p>
-        <p class="stat-value">{{ order.client }}</p>
-      </div>
-      <div class="stat-item">
-        <p class="stat-title">Carro:</p>
-        <p class="stat-value">{{ order.carro }}</p>
-      </div>
-      <div class="stat-item">
-        <p class="stat-title">Status:</p>
-        <p class="stat-value">{{ order.status }}</p>
-      </div>
+    <div class="stat-item">
+      <p class="stat-title">Status:</p>
+      <p class="stat-value">{{ order.status }}</p>
     </div>
-    <div class="small-card-view">
-      <a href="#" class="view-order-link">Visualizar pedido</a>
-    </div>
+  </div>
+  <div class="small-card-view">
+    <a href="#" class="view-order-link">Visualizar pedido</a>
   </div>
 </div>
