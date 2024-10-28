@@ -76,7 +76,7 @@
         <div class="add-service-container">
           <div class="add-service-title">
             <h2>Adicionar serviços</h2>
-            <button (click)="removerServico(i !== undefined ? i : -1)">Remover</button>
+            <button (click)="limparTabela()">Limpar Tabela</button>
             <button class="add-btn" (click)="adicionarServico()">
               <i class="fas fa-plus"></i> Adicionar Serviço
             </button>
@@ -86,7 +86,7 @@
             <table>
               <thead>
                 <tr>
-                  <th>Quant.</th>
+                  <th>quantidade</th>
                   <th>Descrição dos serviços</th>
                   <th>Total</th>
                 </tr>
@@ -100,7 +100,12 @@
                     <input type="text" [(ngModel)]="servico.descricao" placeholder="Descrição" />
                   </td>
                   <td>
-                    <input type="number" [(ngModel)]="servico.total" placeholder="0" />
+                    <input
+                         type="text"
+                         [(ngModel)]="servico.total"
+                         (input)="formatarValorMonetario(i)"
+                         placeholder="R$ 0,00"
+  />
                   </td>
                 </tr>
               </tbody>

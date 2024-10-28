@@ -25,7 +25,7 @@
 
 .menu-itens a {
   text-decoration: none;
-  color: #FFC43D; /* Cor amarela dos textos */
+  color: #FFFFFF; /* Cor amarela dos textos */
   font-family: 'Poppins', sans-serif; /* Fonte Poppins */
   font-size: 18px; /* Tamanho da fonte */
   padding: 15px;
@@ -37,6 +37,7 @@
 
 .menu-itens a:hover {
   background-color: #404080; /* Cor de fundo ao passar o mouse */
+  color: #FFC43D;
 }
 
 .menu-itens i, .menu-itens .material-icons {
@@ -64,18 +65,19 @@
 }
 
 .submenu li a:hover {
-  background-color: #404080; /* Cor de fundo ao passar o mouse no submenu */
+  background-color: #404080;
+  color: #FFC43D;
 }
 
-/* Ícones adicionais */
+
 .menu-itens .fas, .menu-itens .material-icons {
-  color: #FFC43D; /* Cor dos ícones no menu */
+  color: #FFFFFF
 }
 
 /* Rodapé do menu lateral */
 .menu-side-container .footer-menu {
   padding: 20px;
-  color: #FFFFFF;
+  color: #FFC43D;
   font-size: 14px;
   background-color: #2A2F67;
 }

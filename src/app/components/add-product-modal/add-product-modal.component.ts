@@ -1,13 +1,14 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-product-modal',
   templateUrl: './add-product-modal.component.html',
   styleUrls: ['./add-product-modal.component.css'],
   standalone: true,
-  imports: [HttpClientModule]
+  imports: [HttpClientModule, CommonModule]
 })
 export class AddProductModalComponent {
   private apiUrl = 'http://127.0.0.1:8000/submit-order/';
@@ -26,12 +27,14 @@ export class AddProductModalComponent {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     const orderData = {
-      client: this.data.client || '',
-      telefone: this.data.telefone || '',
-      carro: this.data.carro || '',
-      cor: this.data.cor || '',
-      placa: this.data.placa || '',
-      observacao: this.data.observacao || ''
+      client: this.data.client,
+      telefone: this.data.telefone,
+      carro: this.data.carro,
+      cor: this.data.cor,
+      placa: this.data.placa,
+      observacao: this.data.observacao,
+      servicos: this.data.servicos,
+      valorTotal: this.data.valorTotal
     };
 
     console.log('Dados enviados:', orderData);

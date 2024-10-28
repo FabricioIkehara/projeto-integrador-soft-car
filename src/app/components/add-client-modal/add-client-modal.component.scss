@@ -1,7 +1,7 @@
-.modal-container {
-  background-color: #ffffff;
+.dialog-container{
+  height: 600px;
   width: 900px;
-  height: 400px;
+  background-color: #ffffff;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -12,13 +12,13 @@
   overflow: hidden;
 }
 
-.modal-title {
+.dialog-title {
   margin-bottom: 10px;
   margin-top: 30px;
 
 }
 
-.modal-title h2{
+.dialog-title h2{
   font-family: Poppins;
   font-size: 20px;
   font-weight: 500;
@@ -26,57 +26,33 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #2A2F67;
-  margin-left: 20px;
 }
 
-.modal-data{
-  margin-top: 30px;
-}
-
-.modal-data h3{
+.dialog-name{
   font-family: Poppins;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 20px;
-  letter-spacing: -0.02em;
-  text-align: left;
   color: #505050;
+  font-weight: 500;
 }
 
-.modal-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-evenly;
+.dialog-name p{
+  margin-left: 30px;
 }
 
-.modal-under-data{
+.dialog-car-stats{
+  justify-content: space-around;
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  margin-right: 70px;
-  margin-left: 0;
-  margin-top: 30px;
-}
-
-.modal-under-data h2{
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 20px;
-  letter-spacing: -0.02em;
-  text-align: left;
-  color: #505050;
-
 }
 
 
-.modal-actions button{
+
+.dialog-btn button{
   padding: 10px 20px;
   border: 1px border;
   cursor: pointer;
   border-radius: 25px;
   width: 240px;
-  margin-left: 70px;
+  margin-left: 150px;
 
 }
 

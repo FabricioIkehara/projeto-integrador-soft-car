@@ -4,7 +4,7 @@
     <img src="/assets/gear.png" alt="Ícone de Configurações" />
   </div>
   <div class="small-card-title">
-    <p>Título do Card #{{ order.id }}</p>
+    <p>{{ order.servicos[0]?.descricao || 'Nenhum serviço disponível' }}</p>
   </div>
   <div class="small-card-stats">
     <div class="stat-item">
@@ -17,7 +17,7 @@
     </div>
     <div class="stat-item">
       <p class="stat-title">Status:</p>
-      <p class="stat-value">{{ order.status }}</p>
+      <p class="stat-value">Em andamento</p>
     </div>
   </div>
   <div class="small-card-view">

@@ -26,6 +26,7 @@ export class OrderRegisterComponent {
   responseMessage = '';
 
   i: number | undefined;
+  currencyPipe: any;
 
   constructor(private dialog: MatDialog) {}
 
@@ -37,12 +38,10 @@ export class OrderRegisterComponent {
     this.servicos.push({ quantidade: 0, descricao: '', total: 0 });
   }
 
-  public removerServico(index: number): void {
-  if (index !== undefined && index >= 0) {
-    this.servicos.splice(index, 1);
+  public limparTabela(): void {
+    this.servicos = [];
+    console.log('Tabela de serviços limpa.');
   }
-}
-
 
   public onSubmit(): void {
 
@@ -52,6 +51,17 @@ export class OrderRegisterComponent {
   }
 
   openDialog(): void {
+    // Filtrar serviços válidos (não nulos)
+    const servicosValidos = this.servicos.filter(
+      (servico) => servico.descricao && servico.quantidade && servico.total
+    );
+
+
+    const valorTotal = servicosValidos.reduce(
+      (acc, servico) => acc + (servico.quantidade * servico.total),
+      0
+    );
+
     const dialogRef = this.dialog.open(AddProductModalComponent, {
       panelClass: 'custom-dialog',
       data: {
@@ -60,7 +70,9 @@ export class OrderRegisterComponent {
         carro: this.formData.carro,
         cor: this.formData.cor,
         placa: this.formData.placa,
-        observacao: this.formData.observacoes
+        observacao: this.formData.observacoes,
+        servicos: servicosValidos,
+        valorTotal: valorTotal
       },
     });
 
@@ -72,6 +84,14 @@ export class OrderRegisterComponent {
         console.log('Adição de serviço cancelada.');
       }
     });
+  }
+
+
+  formatarValorMonetario(index: number): void {
+    const valorAtual = this.servicos[index].total.toString().replace(/\D/g, '');
+    const valorFormatado = (parseFloat(valorAtual) / 100).toFixed(2);
+
+    this.servicos[index].total = this.currencyPipe.transform(valorFormatado, 'BRL', 'symbol', '1.2-2') || 'R$ 0,00';
   }
 
 }

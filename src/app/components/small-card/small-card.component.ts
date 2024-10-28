@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 interface Order {
+servicos: any;
   id: number;
   client: string;
   telefone: string;
@@ -19,4 +20,6 @@ interface Order {
 })
 export class SmallCardComponent {
   @Input() order!: Order;
+  @Input() titulo: string | undefined;
+servico: any;
 }

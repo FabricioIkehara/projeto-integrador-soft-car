@@ -9,7 +9,9 @@
       <div class="card-container">
         <app-small-card
           *ngFor="let order of orders"
-          [order]="order">
+          [order]="order"
+          [titulo]="order.servicosValidos">
+
         </app-small-card>
       </div>
     </div>
